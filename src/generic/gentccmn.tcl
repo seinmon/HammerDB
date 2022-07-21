@@ -94,7 +94,7 @@ proc write_to_transcount_log { number rdbms metric } {
     if { $tc_flog != "notclog" } {
         dict with genericdict { dict with transaction_counter { set tstamp $tc_log_timestamps }}
         if { $tstamp } {
-            catch {puts $tc_flog "$number $rdbms $metric @ [ clock format [clock seconds]]"}
+            catch {puts $tc_flog "$number $rdbms $metric @ [clock seconds]"}
         } else {
             catch {puts $tc_flog "$number $rdbms $metric"}
         }
